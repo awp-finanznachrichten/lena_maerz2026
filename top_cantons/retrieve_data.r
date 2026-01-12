@@ -1,0 +1,11 @@
+
+#import_data <- googlesheets4::read_sheet("",
+ #                                        sheet = 2)
+
+
+kanton_wappen_raw <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/11ubsMMA94G-aRhz7e3mganRLKzqEzfK1UgJ4e2h-RNE/edit?gid=0#gid=0") %>%
+  select(Canton,Wappen)
+
+vorlagen_names <- googlesheets4::read_sheet("https://docs.google.com/spreadsheets/d/1XrBlkJY_01A4LXkCuKaiC9QGzn0oHFDKXMJwUOGZSeg/edit?gid=1093738023#gid=1093738023")
+
+
