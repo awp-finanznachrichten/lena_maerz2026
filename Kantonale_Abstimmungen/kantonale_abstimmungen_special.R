@@ -4,7 +4,6 @@ votes_metadata_cantonal <- DBI::fetch(rs,n=-1)
 dbDisconnectAll()
 completed_votes <- na.omit(unique(votes_metadata_cantonal$spreadsheet))
 
-
 for (s in 1:length(kantonal_short_special) ) {
 
   if (sum(grepl(kantonal_short_special[s],completed_votes)) == 0) {

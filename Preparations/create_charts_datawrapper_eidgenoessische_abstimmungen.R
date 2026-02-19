@@ -1,5 +1,5 @@
 #Set Working Path
-MAIN_PATH <- "C:/Users/simon/OneDrive/SDA_eidgenoessische_abstimmungen/20251130_LENA_Abstimmungen"
+MAIN_PATH <- "C:/Users/sw/OneDrive/SDA_eidgenoessische_abstimmungen/20260308_LENA_Abstimmungen"
 setwd(MAIN_PATH)
 
 #Load Libraries and Functions
@@ -39,11 +39,14 @@ vorlagen_uebersicht <- c("O1i9P","Ocame","ot8Mm")
 vorlagen_gemeinden <- c("EuC56","JJ03i","CPwql")
 vorlagen_kantone <- c("HH2Hs","G7A2k","sobvY")
 vorlagen_tabellen <- c("0VQuI","1S3q0","TVQV5")
+vorlagen_kantone_special_overview <- c("83ecV","SZmQU","7wXV4")
+vorlagen_kantone_special_initiative <- c("HpDco","LS2ff","FAOHL")
+vorlagen_kantone_special_gegenvorschlag <- c("Gu1as","FsoiR","qiUTe")
+vorlagen_kantone_special_stichentscheid <- c("Cc5YB","cDy1R","ygRKA")
 
 #Titel aktuelle Vorlagen
 vorlagen_all <- rbind(vorlagen,vorlagen_fr)
 vorlagen_all <- rbind(vorlagen_all,vorlagen_it)
-
 
 #Load Folders
 folder_uebersicht <- readRDS("./Preparations/folders/folder_uebersicht.RDS")
@@ -86,8 +89,6 @@ grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
 
 
 ##SWISS MAPS/TABLES GEMEINDEN UND KANTONE
-
-
 for (v in 1:length(vorlagen_short)) {
   title_select <- c(v,v+length(vorlagen_short),v+length(vorlagen_short)+length(vorlagen_short))
   
@@ -99,6 +100,103 @@ for (v in 1:length(vorlagen_short)) {
   
   #Alle drei Sprachen
   for (i in 1:3) {
+
+  if (vorlagen$type[v] == "initiative") {
+    
+    #Gemeinden Übersicht
+    data_chart <- dw_copy_chart(vorlagen_kantone_special_overview[i])
+    dw_edit_chart(data_chart$id,
+                  title=vorlagen_all$text[title_select[i]],
+                  folderId = folder_gemeindeebene$id,
+                  data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                   gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                   "/master/Output_Switzerland/",vorlagen_short[v],"_dw_",sprachen[i],"_overview.csv")))
+    dw_publish_chart(data_chart$id)
+    metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+    
+    new_entry <- data.frame("Schweizer Gemeinden Karte Übersicht",
+                            vorlagen_short[v],
+                            metadata_chart$content$title,
+                            metadata_chart$content$language,
+                            metadata_chart$id,
+                            metadata_chart$content$publicUrl,
+                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+    colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+    grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)  
+    
+    #Gemeinden Initiative
+    data_chart <- dw_copy_chart(vorlagen_kantone_special_initiative[i])
+    dw_edit_chart(data_chart$id,
+                  title=vorlagen_all$text[title_select[i]],
+                  folderId = folder_gemeindeebene$id,
+                  data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                   gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                   "/master/Output_Switzerland/",vorlagen_short[v],"_dw_",sprachen[i],"_initiative.csv")))
+    dw_publish_chart(data_chart$id)
+    metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+    
+    new_entry <- data.frame("Schweizer Gemeinden Karte Initiative",
+                            vorlagen_short[v],
+                            metadata_chart$content$title,
+                            metadata_chart$content$language,
+                            metadata_chart$id,
+                            metadata_chart$content$publicUrl,
+                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+    colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+    grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry) 
+    
+    
+  } else if (vorlagen$type[v] == "counterproposal"){
+    
+    #Gemeinden Gegenvorschlag
+    data_chart <- dw_copy_chart(vorlagen_kantone_special_gegenvorschlag[i])
+    dw_edit_chart(data_chart$id,
+                  title=vorlagen_all$text[title_select[i]],
+                  folderId = folder_gemeindeebene$id,
+                  data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                   gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                   "/master/Output_Switzerland/",vorlagen_short[v],"_dw_",sprachen[i],"_gegenvorschlag.csv")))
+    dw_publish_chart(data_chart$id)
+    metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+    
+    new_entry <- data.frame("Schweizer Gemeinden Karte Gegenvorschlag",
+                            vorlagen_short[v],
+                            metadata_chart$content$title,
+                            metadata_chart$content$language,
+                            metadata_chart$id,
+                            metadata_chart$content$publicUrl,
+                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+    colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+    grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry) 
+    
+  } else if (vorlagen$type[v] == "casting_vote") {
+    
+    #Gemeinden Gegenvorschlag
+    data_chart <- dw_copy_chart(vorlagen_kantone_special_stichentscheid[i])
+    dw_edit_chart(data_chart$id,
+                  title=vorlagen_all$text[title_select[i]],
+                  folderId = folder_gemeindeebene$id,
+                  data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                   gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                   "/master/Output_Switzerland/",vorlagen_short[v],"_dw_",sprachen[i],"_stichentscheid.csv")))
+    dw_publish_chart(data_chart$id)
+    metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+    
+    new_entry <- data.frame("Schweizer Gemeinden Karte Stichentscheid",
+                            vorlagen_short[v],
+                            metadata_chart$content$title,
+                            metadata_chart$content$language,
+                            metadata_chart$id,
+                            metadata_chart$content$publicUrl,
+                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+    colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+    grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry) 
+    
+  } else {
   #Gemeinden  
   data_chart <- dw_copy_chart(vorlagen_gemeinden[i])
   dw_edit_chart(data_chart$id,
@@ -120,6 +218,7 @@ for (v in 1:length(vorlagen_short)) {
                           metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
   colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
   grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+  }
   
   #Kantone
   data_chart <- dw_copy_chart(vorlagen_kantone[i])
@@ -194,6 +293,119 @@ for (c in 1:nrow(cantons_overview)) {
 folder_kanton <- dw_create_folder(cantons_overview$area_ID[c],parent_id = folder_kantone$id)
 for (v in 1:length(vorlagen_short)) {
   if (grepl("de",cantons_overview$languages[c]) == TRUE) {
+    
+    if (vorlagen$type[v] == "initiative") {
+      #Overview
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_overview[1])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_d[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_de_overview.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Overview"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+      
+      #Initiative
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_initiative[1])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_d[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_de_initiative.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Initiative"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+      
+      
+      
+    } else if (vorlagen$type[v] == "counterproposal"){
+      
+      #Initiative
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_gegenvorschlag[1])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_d[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_de_gegenvorschlag.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Gegenvorschlag"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+      
+      
+    } else if (vorlagen$type[v] == "casting_vote") {
+      
+      #Initiative
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_stichentscheid[1])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_d[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_de_stichentscheid.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Stichentscheid"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+    } else {
     data_chart <- dw_copy_chart(vorlagen_gemeinden[1])
     dw_edit_chart(data_chart$id,
                   title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_d[v]),
@@ -218,59 +430,287 @@ for (v in 1:length(vorlagen_short)) {
                             metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
     colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
     grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+    }
   }
   if (grepl("fr",cantons_overview$languages[c]) == TRUE) {
-    data_chart <- dw_copy_chart(vorlagen_gemeinden[2])
-    dw_edit_chart(data_chart$id,
-                  title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_f[v]),
-                  intro = "&nbsp;",
-                  annotate = "&nbsp;",
-                  folderId = folder_kanton$id,
-                  data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
-                                                   gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
-                                                   "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_fr.csv")),
-                  visualize = list("mapView" = "crop",
-                                   "hide-empty-regions" = TRUE))
-    dw_publish_chart(data_chart$id)
-    metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
     
-    new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]),
-                            vorlagen_short[v],
-                            metadata_chart$content$title,
-                            metadata_chart$content$language,
-                            metadata_chart$id,
-                            metadata_chart$content$publicUrl,
-                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
-                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
-    colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
-    grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+    if (vorlagen$type[v] == "initiative") {
+      #Overview
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_overview[2])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_f[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_fr_overview.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Overview"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+      
+      #Initiative
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_initiative[2])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_f[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_fr_initiative.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Initiative"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+      
+      
+      
+    } else if (vorlagen$type[v] == "counterproposal"){
+      
+      #Initiative
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_gegenvorschlag[2])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_f[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_fr_gegenvorschlag.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Gegenvorschlag"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+      
+      
+    } else if (vorlagen$type[v] == "casting_vote") {
+      
+      #Initiative
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_stichentscheid[2])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_f[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_fr_stichentscheid.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Stichentscheid"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+    } else {
+      data_chart <- dw_copy_chart(vorlagen_gemeinden[2])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_f[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_fr.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+    }
   }
   if (grepl("it",cantons_overview$languages[c]) == TRUE) {
-    data_chart <- dw_copy_chart(vorlagen_gemeinden[3])
-    dw_edit_chart(data_chart$id,
-                  title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_i[v]),
-                  intro = "&nbsp;",
-                  annotate = "&nbsp;",
-                  folderId = folder_kanton$id,
-                  data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
-                                                   gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
-                                                   "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_it.csv")),
-                  visualize = list("mapView" = "crop",
-                                   "hide-empty-regions" = TRUE))
     
-    dw_publish_chart(data_chart$id)
-    metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
-    
-    new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]),
-                            vorlagen_short[v],
-                            metadata_chart$content$title,
-                            metadata_chart$content$language,
-                            metadata_chart$id,
-                            metadata_chart$content$publicUrl,
-                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
-                            metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
-    colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
-    grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+    if (vorlagen$type[v] == "initiative") {
+      #Overview
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_overview[3])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_i[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_it_overview.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Overview"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+      
+      #Initiative
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_initiative[3])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_i[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_it_initiative.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Initiative"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+      
+      
+      
+    } else if (vorlagen$type[v] == "counterproposal"){
+      
+      #Initiative
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_gegenvorschlag[3])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_i[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_it_gegenvorschlag.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Gegenvorschlag"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+      
+      
+    } else if (vorlagen$type[v] == "casting_vote") {
+      
+      #Initiative
+      data_chart <- dw_copy_chart(vorlagen_kantone_special_stichentscheid[3])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_i[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_it_stichentscheid.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]," Stichentscheid"),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+    } else {
+      data_chart <- dw_copy_chart(vorlagen_gemeinden[3])
+      dw_edit_chart(data_chart$id,
+                    title=paste0(cantons_overview$area_ID[c],": ",Vorlagen_Titel$Vorlage_i[v]),
+                    intro = "&nbsp;",
+                    annotate = "&nbsp;",
+                    folderId = folder_kanton$id,
+                    data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",
+                                                     gsub("ä","ae",tolower(monate_de[month(voting_date)])),year(voting_date),
+                                                     "/master/Output_Cantons/",cantons_overview$area_ID[c],"_",vorlagen_short[v],"_dw_it.csv")),
+                    visualize = list("mapView" = "crop",
+                                     "hide-empty-regions" = TRUE))
+      dw_publish_chart(data_chart$id)
+      metadata_chart <- dw_retrieve_chart_metadata(data_chart$id)
+      
+      new_entry <- data.frame(paste0("Kanton ",cantons_overview$area_ID[c]),
+                              vorlagen_short[v],
+                              metadata_chart$content$title,
+                              metadata_chart$content$language,
+                              metadata_chart$id,
+                              metadata_chart$content$publicUrl,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-responsive`,
+                              metadata_chart$content$metadata$publish$`embed-codes`$`embed-method-web-component`)
+      colnames(new_entry) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
+      grafiken_uebersicht <- rbind(grafiken_uebersicht,new_entry)
+    }
   }
 }
 }

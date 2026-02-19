@@ -10,30 +10,43 @@ cat("Aktuelle Abstimmungsdaten geladen\n")
 
 ##Deutsch
  vorlagen <- get_vorlagen(json_data,"de")
+ vorlagen$type <- ""
  for (v in 1:nrow(vorlagen)) {
    vote_metadata <- votes_metadata %>%
      filter(votes_ID == vorlagen$id[v],
             area_ID == "CH")
    vorlagen$text[v] <- vote_metadata$title_de
+   vorlagen$type[v] <- ifelse(is.na(vote_metadata$type) == TRUE,
+                              "",
+                              vote_metadata$type)
  }
 
 
 #Französisch
  vorlagen_fr <- get_vorlagen(json_data,"fr")
+ vorlagen_fr$type <- ""
  for (v in 1:nrow(vorlagen_fr)) {
    vote_metadata <- votes_metadata %>%
      filter(votes_ID == vorlagen$id[v],
             area_ID == "CH")
    vorlagen_fr$text[v] <- vote_metadata$title_fr
+   vorlagen_fr$type[v] <- ifelse(is.na(vote_metadata$type) == TRUE,
+                                 "",
+                                 vote_metadata$type)
  }
+ 
 
 #Italienisch
  vorlagen_it <- get_vorlagen(json_data,"it")
+ vorlagen_it$type <- ""
  for (v in 1:nrow(vorlagen_it)) {
    vote_metadata <- votes_metadata %>%
      filter(votes_ID == vorlagen$id[v],
             area_ID == "CH")
    vorlagen_it$text[v] <- vote_metadata$title_it
+   vorlagen_it$type[v] <- ifelse(is.na(vote_metadata$type) == TRUE,
+                                 "",
+                                 vote_metadata$type)
  }
 
 #Kurznamen Vorlagen (Verwendet im File mit den Textbausteinen)

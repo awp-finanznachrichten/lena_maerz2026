@@ -1,10 +1,10 @@
 #Set Working Path
-MAIN_PATH <- "C:/Users/simon/OneDrive/SDA_eidgenoessische_abstimmungen/20251130_LENA_Abstimmungen"
+MAIN_PATH <- "C:/Users/sw/OneDrive/SDA_eidgenoessische_abstimmungen/20260308_LENA_Abstimmungen"
 #MAIN_PATH <- "C:/Automatisierungen/lena_november2025"
 setwd(MAIN_PATH)
 
 #Path Github Token (do NOT include in Repository)
-WD_GITHUB_TOKEN <- "C:/Users/simon/OneDrive/Github_Token/token.txt"
+WD_GITHUB_TOKEN <- "C:/Users/sw/OneDrive/Github_Token/token.txt"
 #WD_GITHUB_TOKEN <- "C:/Github_Token/token.txt"
 
 #Load Libraries and Functions
@@ -46,10 +46,15 @@ time_start <- Sys.time()
 if (time_check_national == FALSE || simulation == TRUE) {
   
   ###Nationale Abstimmungen###
-  #source("./Nationale_Abstimmungen/nationale_abstimmungen.R", encoding="UTF-8")
+  source("./Nationale_Abstimmungen/nationale_abstimmungen.R", encoding="UTF-8")
+  
+  ###Nationale Abstimmungen Sonderfälle###
+  #if (length(national_number_special) > 0) {
+  #  source("./Nationale_Abstimmungen/nationale_abstimmungen_special.R", encoding="UTF-8")
+  #}
   
   #Make Commit
-  #source("./Config/commit.R", encoding="UTF-8")
+  source("./Config/commit.R", encoding="UTF-8")
   
   #Tabellen aktualisieren
   #source("./top_flop/top_flop_run.R", encoding="UTF-8")
