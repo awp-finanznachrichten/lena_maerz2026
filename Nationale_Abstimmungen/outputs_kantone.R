@@ -66,6 +66,8 @@
              Typ == "Schweizer Kantone Karte")
 
     #Karten Kantone
+    if (grepl("initiative|counterproposal|casting_vote",vorlagen$type[i]) == FALSE) {
+  
     dw_edit_chart(datawrapper_codes_vorlage$ID[nrow(datawrapper_codes_vorlage)-2],intro=undertitel_de,annotate=paste0("Letzte Aktualisierung: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
     dw_publish_chart(datawrapper_codes_vorlage$ID[nrow(datawrapper_codes_vorlage)-2])
     
@@ -74,4 +76,15 @@
     
     dw_edit_chart(datawrapper_codes_vorlage$ID[nrow(datawrapper_codes_vorlage)],intro=undertitel_it,annotate=paste0("Ultimo aggiornamento: ",format(Sys.time(),"%d.%m.%Y %H:%M")))
     dw_publish_chart(datawrapper_codes_vorlage$ID[nrow(datawrapper_codes_vorlage)])
+    
+    } else {
+      dw_edit_chart(datawrapper_codes_vorlage$ID[nrow(datawrapper_codes_vorlage)-2],annotate=paste0("Letzte Aktualisierung: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
+      dw_publish_chart(datawrapper_codes_vorlage$ID[nrow(datawrapper_codes_vorlage)-2])
+      
+      dw_edit_chart(datawrapper_codes_vorlage$ID[nrow(datawrapper_codes_vorlage)-1],annotate=paste0("dernière mise à jour: ",format(Sys.time(),"%d.%m.%Y %Hh%M")))
+      dw_publish_chart(datawrapper_codes_vorlage$ID[nrow(datawrapper_codes_vorlage)-1])
+      
+      dw_edit_chart(datawrapper_codes_vorlage$ID[nrow(datawrapper_codes_vorlage)],annotate=paste0("Ultimo aggiornamento: ",format(Sys.time(),"%d.%m.%Y %H:%M")))
+      dw_publish_chart(datawrapper_codes_vorlage$ID[nrow(datawrapper_codes_vorlage)])  
+    }  
   
