@@ -382,7 +382,7 @@ write.xlsx(texts,paste0("./Texte/",kantonal_short_special[s],"_texte.xlsx"),row.
                               "</b> communes sont connus.<br>Etat contre-proposition: <b>",
                               round2(results_kantonal_special_gegenvorschlag[1],1)," %</b> oui, <b>",
                               round2(results_kantonal_special_gegenvorschlag[2],1)," %</b> non")
-      uundertitel_stichentscheid_fr <- paste0("Les résultats de <b>",sum(results$Gebiet_Ausgezaehlt),"</b> des <b>",nrow(results),
+      undertitel_stichentscheid_fr <- paste0("Les résultats de <b>",sum(results$Gebiet_Ausgezaehlt),"</b> des <b>",nrow(results),
                               "</b> communes sont connus.<br>Etat question subsidiaire: <b>",
                               round2(results_kantonal_special_stichentscheid[1],1)," %</b> initiative, <b>",
                               round2(results_kantonal_special_stichentscheid[2],1)," %</b> contre-proposition")
@@ -441,8 +441,6 @@ write.xlsx(texts,paste0("./Texte/",kantonal_short_special[s],"_texte.xlsx"),row.
         dw_publish_chart(datawrapper_codes_vorlage_overview$ID[r])
       }
     }
-    
-    
     
     for (r in 1:nrow(datawrapper_codes_vorlage_initiative)) {
       if (datawrapper_codes_vorlage_initiative$Sprache[r] == "de-DE") {
