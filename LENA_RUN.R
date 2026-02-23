@@ -54,7 +54,6 @@ if (time_check_national == FALSE || simulation == TRUE) {
   ###Output Übersichtsgrafiken###
   source("./Nationale_Abstimmungen/outputs_overview.R", encoding="UTF-8")
   
-
   #Make Commit
   source("./Config/commit.R", encoding="UTF-8")
   
