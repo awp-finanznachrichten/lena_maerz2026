@@ -7,8 +7,6 @@ for (i in 1:length(vorlagen_short)) {
 
   if(vorlagen$type[i] == "initiative") {
   results_national_special_initiative <- get_results(json_data,i,level="national") 
-  resul
-  
   results_national_special_gegenvorschlag <- get_results(json_data,i+1,level="national")
   results_national_special_stichentscheid <- get_results(json_data,i+2,level="national")
   }  
@@ -75,7 +73,6 @@ for (i in 1:length(vorlagen_short)) {
     colnames(results_stichentscheid) <- c("Gebiet_Ausgezaehlt_Stichentscheid","Stichentscheid_Zustimmung_Hauptvorlage","Gemeinde_Nr","Stichentscheid_Zustimmung_Gegenvorschlag")
     results <- merge(results,results_stichentscheid)
   }  
-  
 
   #Ausgezählte Gemeinden auswählen
   if (vorlagen$type[i] == "initiative") {
@@ -168,7 +165,7 @@ for (i in 1:length(vorlagen_short)) {
     }
 
     ###Storybuilder
-    
+    if (grepl("counterproposal|casting_vote",vorlagen$type[i]) == FALSE) {
     #Textvorlagen laden
     Textbausteine <- as.data.frame(read_excel(paste0("Texte/Textbausteine_LENA_",abstimmung_date,".xlsx"), 
                                               sheet = vorlagen_short[i]))
@@ -186,6 +183,7 @@ for (i in 1:length(vorlagen_short)) {
     
     ###Texte anpassen und optimieren
     results <- excuse_my_french(results)
+    }
   }
   
   ###Ausgezählte und nicht ausgezählte Gemeinden wieder zusammenführen -> Immer gleiches Format für Datawrapper
@@ -244,4 +242,3 @@ write.xlsx(texts,paste0("./Texte/",vorlagen_short[i],"_texte.xlsx"),row.names = 
   ###Eintrag für Uebersicht
   source("./Nationale_Abstimmungen/entry_overview.R", encoding="UTF-8")
 }
-

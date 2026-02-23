@@ -57,18 +57,18 @@ dw_edit_chart(datawrapper_codes_overview$ID[3],intro=paste0("Ultimo aggiornament
 dw_publish_chart(datawrapper_codes_overview$ID[3])
 
 #Output Overall Texts
-for (i in 1:length(vorlagen_short)) {
-data_de <- read.csv(paste0("./Output_Switzerland/",vorlagen_short[i],"_dw_de.csv"))
-data_de <- data_de %>%
-  select(Gemeinde_de,Text_de)
-data_fr <- read.csv(paste0("./Output_Switzerland/",vorlagen_short[i],"_dw_fr.csv"))
-data_fr <- data_fr %>%
-  select(Gemeinde_fr,Text_fr)
-data_it <- read.csv(paste0("./Output_Switzerland/",vorlagen_short[i],"_dw_it.csv"))
-data_it <- data_it %>%
-  select(Gemeinde_it,Text_it)
-
-data_all <- cbind(data_de,data_fr,data_it)
-write.csv(data_all,paste0("Output_Switzerland/",vorlagen_short[i],"_all_texts.csv"), na = "", row.names = FALSE, fileEncoding = "UTF-8")
-}  
+# for (i in 1:length(vorlagen_short)) {
+# data_de <- read.csv(paste0("./Output_Switzerland/",vorlagen_short[i],"_dw_de.csv"))
+# data_de <- data_de %>%
+#   select(Gemeinde_de,Text_de)
+# data_fr <- read.csv(paste0("./Output_Switzerland/",vorlagen_short[i],"_dw_fr.csv"))
+# data_fr <- data_fr %>%
+#   select(Gemeinde_fr,Text_fr)
+# data_it <- read.csv(paste0("./Output_Switzerland/",vorlagen_short[i],"_dw_it.csv"))
+# data_it <- data_it %>%
+#   select(Gemeinde_it,Text_it)
+# 
+# data_all <- cbind(data_de,data_fr,data_it)
+# write.csv(data_all,paste0("Output_Switzerland/",vorlagen_short[i],"_all_texts.csv"), na = "", row.names = FALSE, fileEncoding = "UTF-8")
+# }  
 

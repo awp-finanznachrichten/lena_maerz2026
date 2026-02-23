@@ -26,7 +26,6 @@ if (simulation == TRUE) {
 source("./Simulation/data_simulation.R")  
 }  
 
-
 #Aktualisierungs-Check: Gibt es neue Daten?
 mydb <- connectDB(db_name="sda_votes")
 rs <- dbSendQuery(mydb, paste0("SELECT * FROM timestamps"))
@@ -50,11 +49,12 @@ if (time_check_national == FALSE || simulation == TRUE) {
   colnames(data_overview) <- c("Ja","Nein","Abstimmung_de","Abstimmung_fr","Abstimmung_it")
   
   ###Nationale Abstimmungen###
-  source("./Nationale_Abstimmungen/nationale_abstimmungen.R", encoding="UTF-8")
+  source("./Nationale_Abstimmungen/nationale_abstimmungen_neu.R", encoding="UTF-8")
   
   ###Output Übersichtsgrafiken###
   source("./Nationale_Abstimmungen/outputs_overview.R", encoding="UTF-8")
   
+
   #Make Commit
   source("./Config/commit.R", encoding="UTF-8")
   
