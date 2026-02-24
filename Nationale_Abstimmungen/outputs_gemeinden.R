@@ -98,8 +98,7 @@
 
   datawrapper_codes_vorlage <- datawrapper_codes %>%
     filter(Vorlage == vorlagen_short[i],
-           Typ == "Schweizer Gemeinden Karte" |
-             Typ == "Schweizer Kantone Karte")
+           Typ == "Schweizer Gemeinden Karte")
 
     #Karten Gemeinden
     dw_edit_chart(datawrapper_codes_vorlage$ID[1],intro=undertitel_de,annotate=paste0("Letzte Aktualisierung: ",format(Sys.time(),"%d.%m.%Y %H:%M Uhr")))
