@@ -1,101 +1,101 @@
 "ID","Gemeinde_color","Ja_Stimmen_In_Prozent","Nein_Stimmen_In_Prozent","Gemeinde_it","Text_it"
-3506,82.5,82.5,17.5,"Vaz/Obervaz (GR)",
-3513,66.6,66.6,33.4,"Lantsch/Lenz (GR)",
-3514,72.7,72.7,27.3,"Schmitten (GR)",
-3542,1.2,1.2,98.8,"Albula/Alvra (GR)",
-3543,71.5,71.5,28.5,"Surses (GR)",
-3544,52.8,52.8,47.2,"Bergün Filisur (GR)",
-3551,96.4,96.4,3.6,"Brusio (GR)",
-3561,21.5,21.5,78.5,"Poschiavo (GR)",
-3572,94.6,94.6,5.4,"Falera (GR)",
-3575,51.2,51.2,48.8,"Laax (GR)",
-3581,13.4,13.4,86.6,"Sagogn (GR)",
-3582,37.7,37.7,62.3,"Schluein (GR)",
-3603,46.2,46.2,53.8,"Vals (GR)",
-3618,64.4,64.4,35.6,"Lumnezia (GR)",
-3619,30.9,30.9,69.1,"Ilanz/Glion (GR)",
-3633,76.9,76.9,23.1,"Fürstenau (GR)",
-3637,37.6,37.6,62.4,"Rothenbrunnen (GR)",
-3638,18.4,18.4,81.6,"Scharans (GR)",
-3640,72.8,72.8,27.2,"Sils im Domleschg (GR)",
-3661,70.9,70.9,29.1,"Cazis (GR)",
-3662,73.8,73.8,26.2,"Flerden (GR)",
-3663,93.3,93.3,6.7,"Masein (GR)",
-3668,46.3,46.3,53.7,"Thusis (GR)",
-3669,51.2,51.2,48.8,"Tschappina (GR)",
-3670,39.7,39.7,60.3,"Urmein (GR)",
-3672,47.4,47.4,52.6,"Safiental (GR)",
-3673,59.7,59.7,40.3,"Domleschg (GR)",
-3681,25.5,25.5,74.5,"Avers (GR)",
-3695,27.2,27.2,72.8,"Sufers (GR)",
-3701,68.5,68.5,31.5,"Andeer (GR)",
-3711,29.6,29.6,70.4,"Rongellen (GR)",
-3712,46,46,54,"Zillis-Reischen (GR)",
-3713,71.7,71.7,28.3,"Ferrera (GR)",
-3714,32.4,32.4,67.6,"Rheinwald (GR)",
-3715,74,74,26,"Muntogna da Schons (GR)",
-3721,42.4,42.4,57.6,"Bonaduz (GR)",
-3722,47.9,47.9,52.1,"Domat/Ems (GR)",
-3723,20.6,20.6,79.4,"Rhäzüns (GR)",
-3731,47.5,47.5,52.5,"Felsberg (GR)",
-3732,28.8,28.8,71.2,"Flims (GR)",
-3733,40,40,60,"Tamins (GR)",
-3734,66.4,66.4,33.6,"Trin (GR)",
-3746,62.2,62.2,37.8,"Zernez (GR)",
-3752,45.7,45.7,54.3,"Samnaun (GR)",
-3762,31.1,31.1,68.9,"Scuol (GR)",
-3764,69.6,69.6,30.4,"Valsot (GR)",
-3781,34.2,34.2,65.8,"Bever (GR)",
-3782,35.9,35.9,64.1,"Celerina/Schlarigna (GR)",
-3783,11.4,11.4,88.6,"Madulain (GR)",
-3784,5.6,5.6,94.4,"Pontresina (GR)",
-3785,38.1,38.1,61.9,"La Punt-Chamues-ch (GR)",
-3786,50.8,50.8,49.2,"Samedan (GR)",
-3787,49.7,49.7,50.3,"St. Moritz (GR)",
-3788,99.8,99.8,0.2,"S-chanf (GR)",
-3789,62.4,62.4,37.6,"Sils im Engadin/Segl (GR)",
-3790,81.6,81.6,18.4,"Silvaplana (GR)",
-3791,51.2,51.2,48.8,"Zuoz (GR)",
-3792,47.4,47.4,52.6,"Bregaglia (GR)",
-3804,65.5,65.5,34.5,"Buseno (GR)",
-3805,43.8,43.8,56.2,"Castaneda (GR)",
-3808,38.5,38.5,61.5,"Rossa (GR)",
-3810,74.6,74.6,25.4,"Santa Maria in Calanca (GR)",
-3821,67,67,33,"Lostallo (GR)",
-3822,44.5,44.5,55.5,"Mesocco (GR)",
-3823,31.8,31.8,68.2,"Soazza (GR)",
-3831,56.8,56.8,43.2,"Cama (GR)",
-3832,5.1,5.1,94.9,"Grono (GR)",
-3834,49,49,51,"Roveredo (GR)",
-3835,80.2,80.2,19.8,"San Vittore (GR)",
-3837,17,17,83,"Calanca (GR)",
-3847,78,78,22,"Val Müstair (GR)",
-3851,63.2,63.2,36.8,"Davos (GR)",
-3861,43,43,57,"Fideris (GR)",
-3862,10,10,90,"Furna (GR)",
-3863,49.5,49.5,50.5,"Jenaz (GR)",
-3871,55.1,55.1,44.9,"Klosters-Serneus (GR)",
-3881,38.9,38.9,61.1,"Conters im Prättigau (GR)",
-3882,87.6,87.6,12.4,"Küblis (GR)",
-3891,50.8,50.8,49.2,"Luzein (GR)",
-3901,54,54,46,"Coira (GR)",
-3911,20.5,20.5,79.5,"Churwalden (GR)",
-3921,63.1,63.1,36.9,"Arosa (GR)",
-3945,51.1,51.1,48.9,"Trimmis (GR)",
-3946,33.7,33.7,66.3,"Untervaz (GR)",
-3947,20.9,20.9,79.1,"Zizers (GR)",
-3951,93.1,93.1,6.9,"Fläsch (GR)",
-3952,50,50,50,"Jenins (GR)",
-3953,77.1,77.1,22.9,"Maienfeld (GR)",
-3954,16.6,16.6,83.4,"Malans (GR)",
-3955,70.9,70.9,29.1,"Landquart (GR)",
-3961,50.7,50.7,49.3,"Grüsch (GR)",
-3962,50,50,50,"Schiers (GR)",
-3972,31.9,31.9,68.1,"Seewis im Prättigau (GR)",
-3981,38.9,38.9,61.1,"Breil/Brigels (GR)",
-3982,28.4,28.4,71.6,"Disentis/Mustér (GR)",
-3983,35.3,35.3,64.7,"Medel (Lucmagn) (GR)",
-3985,16.4,16.4,83.6,"Sumvitg (GR)",
-3986,79.9,79.9,20.1,"Tujetsch (GR)",
-3987,40.7,40.7,59.3,"Trun (GR)",
-3988,83.1,83.1,16.9,"Obersaxen Mundaun (GR)",
+3506,50,0,0,"Vaz/Obervaz (GR)","I risultati di questo comune non sono ancora noti."
+3513,50,0,0,"Lantsch/Lenz (GR)","I risultati di questo comune non sono ancora noti."
+3514,50,0,0,"Schmitten (GR)","I risultati di questo comune non sono ancora noti."
+3542,50,0,0,"Albula/Alvra (GR)","I risultati di questo comune non sono ancora noti."
+3543,50,0,0,"Surses (GR)","I risultati di questo comune non sono ancora noti."
+3544,50,0,0,"Bergün Filisur (GR)","I risultati di questo comune non sono ancora noti."
+3551,50,0,0,"Brusio (GR)","I risultati di questo comune non sono ancora noti."
+3561,50,0,0,"Poschiavo (GR)","I risultati di questo comune non sono ancora noti."
+3572,50,0,0,"Falera (GR)","I risultati di questo comune non sono ancora noti."
+3575,50,0,0,"Laax (GR)","I risultati di questo comune non sono ancora noti."
+3581,50,0,0,"Sagogn (GR)","I risultati di questo comune non sono ancora noti."
+3582,50,0,0,"Schluein (GR)","I risultati di questo comune non sono ancora noti."
+3603,50,0,0,"Vals (GR)","I risultati di questo comune non sono ancora noti."
+3618,50,0,0,"Lumnezia (GR)","I risultati di questo comune non sono ancora noti."
+3619,50,0,0,"Ilanz/Glion (GR)","I risultati di questo comune non sono ancora noti."
+3633,50,0,0,"Fürstenau (GR)","I risultati di questo comune non sono ancora noti."
+3637,50,0,0,"Rothenbrunnen (GR)","I risultati di questo comune non sono ancora noti."
+3638,50,0,0,"Scharans (GR)","I risultati di questo comune non sono ancora noti."
+3640,50,0,0,"Sils im Domleschg (GR)","I risultati di questo comune non sono ancora noti."
+3661,50,0,0,"Cazis (GR)","I risultati di questo comune non sono ancora noti."
+3662,50,0,0,"Flerden (GR)","I risultati di questo comune non sono ancora noti."
+3663,50,0,0,"Masein (GR)","I risultati di questo comune non sono ancora noti."
+3668,50,0,0,"Thusis (GR)","I risultati di questo comune non sono ancora noti."
+3669,50,0,0,"Tschappina (GR)","I risultati di questo comune non sono ancora noti."
+3670,50,0,0,"Urmein (GR)","I risultati di questo comune non sono ancora noti."
+3672,50,0,0,"Safiental (GR)","I risultati di questo comune non sono ancora noti."
+3673,50,0,0,"Domleschg (GR)","I risultati di questo comune non sono ancora noti."
+3681,50,0,0,"Avers (GR)","I risultati di questo comune non sono ancora noti."
+3695,50,0,0,"Sufers (GR)","I risultati di questo comune non sono ancora noti."
+3701,50,0,0,"Andeer (GR)","I risultati di questo comune non sono ancora noti."
+3711,50,0,0,"Rongellen (GR)","I risultati di questo comune non sono ancora noti."
+3712,50,0,0,"Zillis-Reischen (GR)","I risultati di questo comune non sono ancora noti."
+3713,50,0,0,"Ferrera (GR)","I risultati di questo comune non sono ancora noti."
+3714,50,0,0,"Rheinwald (GR)","I risultati di questo comune non sono ancora noti."
+3715,50,0,0,"Muntogna da Schons (GR)","I risultati di questo comune non sono ancora noti."
+3721,50,0,0,"Bonaduz (GR)","I risultati di questo comune non sono ancora noti."
+3722,50,0,0,"Domat/Ems (GR)","I risultati di questo comune non sono ancora noti."
+3723,50,0,0,"Rhäzüns (GR)","I risultati di questo comune non sono ancora noti."
+3731,50,0,0,"Felsberg (GR)","I risultati di questo comune non sono ancora noti."
+3732,50,0,0,"Flims (GR)","I risultati di questo comune non sono ancora noti."
+3733,50,0,0,"Tamins (GR)","I risultati di questo comune non sono ancora noti."
+3734,50,0,0,"Trin (GR)","I risultati di questo comune non sono ancora noti."
+3746,50,0,0,"Zernez (GR)","I risultati di questo comune non sono ancora noti."
+3752,50,0,0,"Samnaun (GR)","I risultati di questo comune non sono ancora noti."
+3762,50,0,0,"Scuol (GR)","I risultati di questo comune non sono ancora noti."
+3764,50,0,0,"Valsot (GR)","I risultati di questo comune non sono ancora noti."
+3781,50,0,0,"Bever (GR)","I risultati di questo comune non sono ancora noti."
+3782,50,0,0,"Celerina/Schlarigna (GR)","I risultati di questo comune non sono ancora noti."
+3783,50,0,0,"Madulain (GR)","I risultati di questo comune non sono ancora noti."
+3784,50,0,0,"Pontresina (GR)","I risultati di questo comune non sono ancora noti."
+3785,50,0,0,"La Punt-Chamues-ch (GR)","I risultati di questo comune non sono ancora noti."
+3786,50,0,0,"Samedan (GR)","I risultati di questo comune non sono ancora noti."
+3787,50,0,0,"St. Moritz (GR)","I risultati di questo comune non sono ancora noti."
+3788,50,0,0,"S-chanf (GR)","I risultati di questo comune non sono ancora noti."
+3789,50,0,0,"Sils im Engadin/Segl (GR)","I risultati di questo comune non sono ancora noti."
+3790,50,0,0,"Silvaplana (GR)","I risultati di questo comune non sono ancora noti."
+3791,50,0,0,"Zuoz (GR)","I risultati di questo comune non sono ancora noti."
+3792,50,0,0,"Bregaglia (GR)","I risultati di questo comune non sono ancora noti."
+3804,50,0,0,"Buseno (GR)","I risultati di questo comune non sono ancora noti."
+3805,50,0,0,"Castaneda (GR)","I risultati di questo comune non sono ancora noti."
+3808,50,0,0,"Rossa (GR)","I risultati di questo comune non sono ancora noti."
+3810,50,0,0,"Santa Maria in Calanca (GR)","I risultati di questo comune non sono ancora noti."
+3821,50,0,0,"Lostallo (GR)","I risultati di questo comune non sono ancora noti."
+3822,50,0,0,"Mesocco (GR)","I risultati di questo comune non sono ancora noti."
+3823,50,0,0,"Soazza (GR)","I risultati di questo comune non sono ancora noti."
+3831,50,0,0,"Cama (GR)","I risultati di questo comune non sono ancora noti."
+3832,50,0,0,"Grono (GR)","I risultati di questo comune non sono ancora noti."
+3834,50,0,0,"Roveredo (GR)","I risultati di questo comune non sono ancora noti."
+3835,50,0,0,"San Vittore (GR)","I risultati di questo comune non sono ancora noti."
+3837,50,0,0,"Calanca (GR)","I risultati di questo comune non sono ancora noti."
+3847,50,0,0,"Val Müstair (GR)","I risultati di questo comune non sono ancora noti."
+3851,50,0,0,"Davos (GR)","I risultati di questo comune non sono ancora noti."
+3861,50,0,0,"Fideris (GR)","I risultati di questo comune non sono ancora noti."
+3862,50,0,0,"Furna (GR)","I risultati di questo comune non sono ancora noti."
+3863,50,0,0,"Jenaz (GR)","I risultati di questo comune non sono ancora noti."
+3871,50,0,0,"Klosters-Serneus (GR)","I risultati di questo comune non sono ancora noti."
+3881,50,0,0,"Conters im Prättigau (GR)","I risultati di questo comune non sono ancora noti."
+3882,50,0,0,"Küblis (GR)","I risultati di questo comune non sono ancora noti."
+3891,50,0,0,"Luzein (GR)","I risultati di questo comune non sono ancora noti."
+3901,50,0,0,"Coira (GR)","I risultati di questo comune non sono ancora noti."
+3911,50,0,0,"Churwalden (GR)","I risultati di questo comune non sono ancora noti."
+3921,50,0,0,"Arosa (GR)","I risultati di questo comune non sono ancora noti."
+3945,50,0,0,"Trimmis (GR)","I risultati di questo comune non sono ancora noti."
+3946,50,0,0,"Untervaz (GR)","I risultati di questo comune non sono ancora noti."
+3947,50,0,0,"Zizers (GR)","I risultati di questo comune non sono ancora noti."
+3951,50,0,0,"Fläsch (GR)","I risultati di questo comune non sono ancora noti."
+3952,50,0,0,"Jenins (GR)","I risultati di questo comune non sono ancora noti."
+3953,50,0,0,"Maienfeld (GR)","I risultati di questo comune non sono ancora noti."
+3954,50,0,0,"Malans (GR)","I risultati di questo comune non sono ancora noti."
+3955,50,0,0,"Landquart (GR)","I risultati di questo comune non sono ancora noti."
+3961,50,0,0,"Grüsch (GR)","I risultati di questo comune non sono ancora noti."
+3962,50,0,0,"Schiers (GR)","I risultati di questo comune non sono ancora noti."
+3972,50,0,0,"Seewis im Prättigau (GR)","I risultati di questo comune non sono ancora noti."
+3981,50,0,0,"Breil/Brigels (GR)","I risultati di questo comune non sono ancora noti."
+3982,50,0,0,"Disentis/Mustér (GR)","I risultati di questo comune non sono ancora noti."
+3983,50,0,0,"Medel (Lucmagn) (GR)","I risultati di questo comune non sono ancora noti."
+3985,50,0,0,"Sumvitg (GR)","I risultati di questo comune non sono ancora noti."
+3986,50,0,0,"Tujetsch (GR)","I risultati di questo comune non sono ancora noti."
+3987,50,0,0,"Trun (GR)","I risultati di questo comune non sono ancora noti."
+3988,50,0,0,"Obersaxen Mundaun (GR)","I risultati di questo comune non sono ancora noti."

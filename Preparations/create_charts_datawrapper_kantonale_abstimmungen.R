@@ -1,5 +1,5 @@
 #Set Working Path
-MAIN_PATH <- "C:/Users/sw/OneDrive/SDA_eidgenoessische_abstimmungen/20251130_LENA_Abstimmungen"
+MAIN_PATH <- "C:/Users/simon/OneDrive/SDA_eidgenoessische_abstimmungen/20260308_LENA_Abstimmungen"
 setwd(MAIN_PATH)
 
 #Load Libraries and Functions
@@ -53,9 +53,6 @@ folder_kantone_uebersicht <- readRDS("./Preparations/folders/folder_kantone_uebe
 ###Kantonale Abstimmungen
 grafiken_uebersicht <- data.frame("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
 colnames(grafiken_uebersicht) <- c("Typ","Vorlage","Titel","Sprache","ID","Link","Iframe","Script")
-
-
-
   
 if (length(kantonal_short) > 0) {
 for (k in 1:length(kantonal_short)) {
