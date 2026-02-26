@@ -33,3 +33,12 @@ for (i in 1:nrow(grafiken_uebersicht)) {
 }
 
 
+
+metadata_chart <- dw_retrieve_chart_metadata("smg56")
+
+
+dw_edit_chart("smg56",
+              visualize = list("mapView" = "crop",
+                               "hide-empty-regions" = TRUE))
+
+dw_publish_chart("smg56")
