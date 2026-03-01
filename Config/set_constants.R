@@ -4,7 +4,7 @@ voting_date <- "2026-03-08"
 date_voting <- "20260308"
 
 #Save texts? Simulation? Default FALSE
-simulation <- FALSE
+simulation <- TRUE
 save_texts <- FALSE
 
 #Output for special Einzugsgebiete? Default FALSE
