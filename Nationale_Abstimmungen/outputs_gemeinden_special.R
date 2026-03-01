@@ -236,14 +236,14 @@ if (nrow(results_notavailable) == 0) {
                                          round2(100-results_national_special_stichentscheid$jaStimmenInProzent,1)," %</b> contre-proposition")
   
   undertitel_overview_it <- paste0("Risultato iniziativa: <b>",
-                                   round2(results_national_special_initiative[1],1)," %</b> sì, <b>",
-                                   round2(100-results_national_special_initiative[2],1)," %</b> no<br>",
+                                   round2(results_national_special_initiative$jaStimmenInProzent,1)," %</b> sì, <b>",
+                                   round2(100-results_national_special_initiative$jaStimmenInProzent,1)," %</b> no<br>",
                                    "Risultato controproposta: <b>",
-                                   round2(results_national_special_gegenvorschlag[1],1)," %</b> sì, <b>",
-                                   round2(100-results_national_special_gegenvorschlag[2],1)," %</b> no<br>",
+                                   round2(results_national_special_gegenvorschlag$jaStimmenInProzent,1)," %</b> sì, <b>",
+                                   round2(100-results_national_special_gegenvorschlag$jaStimmenInProzent,1)," %</b> no<br>",
                                    "Risultato domanda risolutiva: <b>",
-                                   round2(results_national_special_stichentscheid[1],1)," %</b> iniziativa, <b>",
-                                   round2(100-results_national_special_stichentscheid[2],1)," %</b> controproposta"
+                                   round2(results_national_special_stichentscheid$jaStimmenInProzent,1)," %</b> iniziativa, <b>",
+                                   round2(100-results_national_special_stichentscheid$jaStimmenInProzent,1)," %</b> controproposta"
   )
   
   undertitel_initiative_it <- paste0("Risultato iniziativa: <b>",

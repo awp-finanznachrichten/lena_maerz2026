@@ -5,7 +5,7 @@ library(zip)
 library(RCurl)
 
 #Set Working Path
-MAIN_PATH <- "C:/Users/simon/OneDrive/SDA_eidgenoessische_abstimmungen/20251130_LENA_Abstimmungen"
+MAIN_PATH <- "C:/Users/simon/OneDrive/SDA_eidgenoessische_abstimmungen/20260308_LENA_Abstimmungen"
 #MAIN_PATH <- "C:/Automatisierungen/lena_februar2025"
 setwd(MAIN_PATH)
 
@@ -31,9 +31,9 @@ folder_fr <- "279016"
 folder_it <- "279016"
 
 #Datum
-datum_de <- "30. November 2025"
-datum_fr <- "30 novembre 2025"
-datum_it <- "30 novembre 2025"
+datum_de <- "8. März 2026"
+datum_fr <- "8 mars 2026"
+datum_it <- "8 marzo 2026"
 
 for (i in 1:length(vorlagen_short) ) {
 
