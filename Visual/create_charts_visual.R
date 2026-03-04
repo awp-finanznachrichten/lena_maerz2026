@@ -5,7 +5,7 @@ library(zip)
 library(RCurl)
 
 #Set Working Path
-MAIN_PATH <- "C:/Users/simon/OneDrive/SDA_eidgenoessische_abstimmungen/20260308_LENA_Abstimmungen"
+MAIN_PATH <- "C:/Users/sw/OneDrive/SDA_eidgenoessische_abstimmungen/20260308_LENA_Abstimmungen"
 #MAIN_PATH <- "C:/Automatisierungen/lena_februar2025"
 setwd(MAIN_PATH)
 
@@ -26,9 +26,9 @@ vorlage_gemeinde <- c("kDkMR","5NIK3","Idw6B")
 vorlage_kantone <- c("Tfr6N","RZFmo","fOEsn")
 
 #Ordner Codes
-folder_de <- "279016"
-folder_fr <- "279016"
-folder_it <- "279016"
+folder_de <- "390374"
+folder_fr <- "390375"
+folder_it <- "390376"
 
 #Datum
 datum_de <- "8. März 2026"
@@ -45,11 +45,11 @@ Stimmbeteiligung <- round2(results_national$stimmbeteiligungInProzent,1)
 Staende_Ja <- results_national$jaStaendeGanz+(results_national$jaStaendeHalb/2)
 Staende_Nein <- results_national$neinStaendeGanz+(results_national$neinStaendeHalb/2)
 
-# Ja_Anteil <- 55.2
-# Nein_Anteil <- 44.8
-# Stimmbeteiligung <- 52.4
-# Staende_Ja <- 19
-# Staende_Nein <- 4
+Ja_Anteil <- 55.2
+Nein_Anteil <- 44.8
+Stimmbeteiligung <- 52.4
+Staende_Ja <- 19
+Staende_Nein <- 4
 
 #####DEUTSCH
 
@@ -130,8 +130,9 @@ dw_edit_chart(new_chart$id,title=titel,
               data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i],"_dw_kantone.csv")),
               axes=list("values"="Kanton_color"),
               folderId = folder_de)
-
+  
 dw_publish_chart(new_chart$id)
+
 ###Bilddaten speichen und hochladen für Kanton
 
 setwd("./Grafiken")
@@ -178,13 +179,42 @@ zip::zip(zipfile = paste0('LENA_Kantone_',vorlagen_short[i],'_DEU.zip'),
          c(paste0("LENA_Kantone_",vorlagen_short[i],".eps"),paste0("LENA_Kantone_",vorlagen_short[i],".svg"),"preview.jpg","metadata.properties"), mode="cherry-pick")
 
 #Chart löschen
-dw_delete_chart(new_chart$id)
+#dw_delete_chart(new_chart$id)
 
 setwd("..")
 setwd("..")
 
 ###Vorlage kopieren
 new_chart <-dw_copy_chart(vorlage_gemeinde[1])
+
+if (vorlagen$type[i] == "initiative") {
+  #Grafik anpassen
+  dw_edit_chart(new_chart$id,title=titel,
+                intro=undertitel_text,
+                annotate=footer,
+                data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i],"_dw_de_initiative.csv")),
+                axes=list("values"="Gemeinde_color"),
+                folderId = folder_de)  
+  
+} else if (vorlagen$type[i] == "counterproposal")  {
+  #Grafik anpassen
+  dw_edit_chart(new_chart$id,title=titel,
+                intro=undertitel_text,
+                annotate=footer,
+                data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i-1],"_dw_de_gegenvorschlag.csv")),
+                axes=list("values"="Gemeinde_color"),
+                folderId = folder_de)
+  
+} else if (vorlagen$type[i] == "casting_vote")  {
+  #Grafik anpassen
+  dw_edit_chart(new_chart$id,title=titel,
+                intro=undertitel_text,
+                annotate=footer,
+                data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i-2],"_dw_de_stichentscheid.csv")),
+                axes=list("values"="Gemeinde_color"),
+                folderId = folder_de)
+  
+} else {  
 
 #Grafik anpassen
 dw_edit_chart(new_chart$id,title=titel,
@@ -193,6 +223,7 @@ dw_edit_chart(new_chart$id,title=titel,
               data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i],"_dw_de.csv")),
               axes=list("values"="Gemeinde_color"),
               folderId = folder_de)
+}  
 
 dw_publish_chart(new_chart$id)
 ##Bilddaten speichen und hochladen für Gemeinde
@@ -239,7 +270,7 @@ zip::zip(zipfile = paste0('LENA_Gemeinden_',vorlagen_short[i],'_DEU.zip'),
          c(paste0("LENA_Gemeinden_",vorlagen_short[i],".eps"),paste0("LENA_Gemeinden_",vorlagen_short[i],".svg"),"preview.jpg","metadata.properties"), mode="cherry-pick")
 
 #Chart löschen
-dw_delete_chart(new_chart$id)
+#dw_delete_chart(new_chart$id)
 
 setwd("..")
 setwd("..")
@@ -366,7 +397,7 @@ zip::zip(zipfile = paste0('LENA_Kantone_',vorlagen_short[i],'_FR.zip'),
          c(paste0("LENA_Kantone_",vorlagen_short[i],".eps"),paste0("LENA_Kantone_",vorlagen_short[i],".svg"),"preview.jpg","metadata.properties"), mode="cherry-pick")
 
 #Chart löschen
-dw_delete_chart(new_chart$id)
+#dw_delete_chart(new_chart$id)
 
 setwd("..")
 setwd("..")
@@ -374,6 +405,41 @@ setwd("..")
 
 ###Vorlage kopieren
 new_chart <-dw_copy_chart(vorlage_gemeinde[2])
+
+if (vorlagen$type[i] == "initiative") {
+  #Grafik anpassen
+  dw_edit_chart(new_chart$id,title=titel,
+                language="fr-CH",
+                intro=undertitel_text,
+                annotate=footer,
+                data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i],"_dw_fr_initiative.csv")),
+                axes=list("values"="Gemeinde_color"),
+                visualize = list("legend"=list("title"="pourcentage de oui")),
+                folderId = folder_fr)
+  
+} else if (vorlagen$type[i] == "counterproposal")  {
+  #Grafik anpassen
+  dw_edit_chart(new_chart$id,title=titel,
+                language="fr-CH",
+                intro=undertitel_text,
+                annotate=footer,
+                data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i-1],"_dw_fr_gegenvorschlag.csv")),
+                axes=list("values"="Gemeinde_color"),
+                visualize = list("legend"=list("title"="pourcentage de oui")),
+                folderId = folder_fr)
+  
+} else if (vorlagen$type[i] == "casting_vote")  {
+  #Grafik anpassen
+  dw_edit_chart(new_chart$id,title=titel,
+                language="fr-CH",
+                intro=undertitel_text,
+                annotate=footer,
+                data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i-2],"_dw_fr_stichentscheid.csv")),
+                axes=list("values"="Gemeinde_color"),
+                visualize = list("legend"=list("title"="pourcentage de oui")),
+                folderId = folder_fr)
+  
+} else {  
 
 #Grafik anpassen
 dw_edit_chart(new_chart$id,title=titel,
@@ -384,7 +450,8 @@ dw_edit_chart(new_chart$id,title=titel,
               axes=list("values"="Gemeinde_color"),
               visualize = list("legend"=list("title"="pourcentage de oui")),
               folderId = folder_fr)
-
+}
+  
 dw_publish_chart(new_chart$id)
 ##Bilddaten speichen und hochladen für Gemeinde
 setwd("./Grafiken")
@@ -430,7 +497,7 @@ zip::zip(zipfile = paste0('LENA_Gemeinden_',vorlagen_short[i],'_FR.zip'),
          c(paste0("LENA_Gemeinden_",vorlagen_short[i],".eps"),paste0("LENA_Gemeinden_",vorlagen_short[i],".svg"),"preview.jpg","metadata.properties"), mode="cherry-pick")
 
 #Chart löschen
-dw_delete_chart(new_chart$id)
+#dw_delete_chart(new_chart$id)
 
 setwd("..")
 setwd("..")
@@ -566,7 +633,7 @@ zip::zip(zipfile = paste0('LENA_Kantone_',vorlagen_short[i],'_IT.zip'),
          c(paste0("LENA_Kantone_",vorlagen_short[i],".eps"),paste0("LENA_Kantone_",vorlagen_short[i],".svg"),"preview.jpg","metadata.properties"), mode="cherry-pick")
 
 #Chart löschen
-dw_delete_chart(new_chart$id)
+#dw_delete_chart(new_chart$id)
 
 setwd("..")
 setwd("..")
@@ -575,7 +642,40 @@ setwd("..")
 ###Vorlage kopieren
 new_chart <-dw_copy_chart(vorlage_gemeinde[3])
 
-
+if (vorlagen$type[i] == "initiative") {
+  #Grafik anpassen
+  dw_edit_chart(new_chart$id,title=titel,
+                language="it-CH",
+                intro=undertitel_text,
+                annotate=footer,
+                data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i],"_dw_it_initiative.csv")),
+                axes=list("values"="Gemeinde_color"),
+                visualize = list("legend"=list("title"="percentuale sì")),
+                folderId = folder_it)
+  
+} else if (vorlagen$type[i] == "counterproposal")  {
+  #Grafik anpassen
+  dw_edit_chart(new_chart$id,title=titel,
+                language="it-CH",
+                intro=undertitel_text,
+                annotate=footer,
+                data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i-1],"_dw_it_gegenvorschlag.csv")),
+                axes=list("values"="Gemeinde_color"),
+                visualize = list("legend"=list("title"="percentuale sì")),
+                folderId = folder_it)
+  
+} else if (vorlagen$type[i] == "casting_vote")  {
+  #Grafik anpassen
+  dw_edit_chart(new_chart$id,title=titel,
+                language="it-CH",
+                intro=undertitel_text,
+                annotate=footer,
+                data=list("external-data"=paste0("https://raw.githubusercontent.com/awp-finanznachrichten/lena_",tolower(abstimmung_date),"/master/Output_Switzerland/",vorlagen_short[i-2],"_dw_it_stichentscheid.csv")),
+                axes=list("values"="Gemeinde_color"),
+                visualize = list("legend"=list("title"="percentuale sì")),
+                folderId = folder_it)
+  
+} else {  
 #Grafik anpassen
 dw_edit_chart(new_chart$id,title=titel,
               language="it-CH",
@@ -585,7 +685,7 @@ dw_edit_chart(new_chart$id,title=titel,
               axes=list("values"="Gemeinde_color"),
               visualize = list("legend"=list("title"="percentuale sì")),
               folderId = folder_it)
-
+}
 #metadata <- dw_retrieve_chart_metadata(new_chart$id)
 dw_publish_chart(new_chart$id)
 
@@ -633,7 +733,7 @@ zip::zip(zipfile = paste0('LENA_Gemeinden_',vorlagen_short[i],'_IT.zip'),
          c(paste0("LENA_Gemeinden_",vorlagen_short[i],".eps"),paste0("LENA_Gemeinden_",vorlagen_short[i],".svg"),"preview.jpg","metadata.properties"), mode="cherry-pick")
 
 #Chart löschen
-dw_delete_chart(new_chart$id)
+#dw_delete_chart(new_chart$id)
 
 setwd("..")
 setwd("..")

@@ -1,6 +1,6 @@
 ##importer res. cantonaux
 
-link_nov <- "https://ogd-static.voteinfo-app.ch/v1/ogd/sd-t-17-02-20251130-eidgAbstimmung.json"
+link_nov <- "https://ogd-static.voteinfo-app.ch/v1/ogd/sd-t-17-02-20260308-eidgAbstimmung.json"
 
 #link <- "https://ogd-static.voteinfo-app.ch/v1/ogd/sd-t-17-02-20250928-eidgAbstimmung.json"
 #test_link <- "https://ogd-static.voteinfo-app.ch/v1/ogd/sd-t-17-02-20241124-eidgAbstimmung.json"
@@ -29,13 +29,17 @@ mapping_issues <- vot_raw$schweiz$vorlagen %>%
   purrr::pluck() %>%
   dplyr::bind_rows() %>%
   group_by(vorlagenId) %>%
-  #mutate(vorlagenId = case_when(vorlagenId == 6780 ~ 6800, #a supprimer!
+  #mutate(vorlagenId = case_when(vorlagenId == 6780 ~ 6800, #a supprimer! 6821,6822,6830,6840,6850
    #                             vorlagenId == 6790 ~ 6810)) %>% #a supprimer
-  mutate(issue_number = case_when(vorlagenId == 6800 ~ 1,
-                                  vorlagenId == 6810 ~ 2)) %>%
+  mutate(issue_number = case_when(vorlagenId == 6821 ~ 1,
+                                  vorlagenId == 6822 ~ 2,
+                                  vorlagenId == 6823 ~ 3,
+                                  vorlagenId == 6830 ~ 4,
+                                  vorlagenId == 6840 ~ 5,
+                                  vorlagenId == 6850 ~ 6)) %>%
   tidyr::unnest(vorlagenTitel) %>%
   dplyr::left_join(vorlagen_names, join_by("vorlagenId" == "Vorlage_ID")) %>%
-  select(vorlagenId,langKey, issue_number, text,Vorlage_f, Vorlage_d, Vorlage_i)
+  select(vorlagenId,langKey, issue_number, text,Vorlage_f, Vorlage_d, Vorlage_i) #%>%
   
 #mapping_issues <- vot_raw$schweiz$vorlagen$vorlagenTitel %>%
  # purrr::pluck() %>%
@@ -68,9 +72,13 @@ cant <- vot_raw$schweiz$vorlagen$kantone %>%
   dplyr::group_by(geoLevelname) %>%
   dplyr::mutate(
     issue_number = dplyr::row_number(),
-    issue = dplyr::case_when(
+    issue = dplyr::case_when( #adapter au nombre de votation
       issue_number == 1 ~ issues_list_fr[1],
-      issue_number == 2 ~ issues_list_fr[2]
+      issue_number == 2 ~ issues_list_fr[2],
+      issue_number == 3 ~ issues_list_fr[3],
+      issue_number == 4 ~ issues_list_fr[4],
+      issue_number == 5 ~ issues_list_fr[5],
+      issue_number == 6 ~ issues_list_fr[6]
     )
   ) %>%
   tidyr::unnest(resultat) %>%
@@ -86,7 +94,8 @@ cant <- vot_raw$schweiz$vorlagen$kantone %>%
   dplyr::left_join(cant_names, by = c("geoLevelnummer" = "Kantons_Nr")) %>%
   dplyr::rename(name = canton_name) %>%
   dplyr::left_join(mapping_issues, by = c("issue_number" = "issue_number")) %>%
-  filter(langKey == "fr")
+  filter(langKey == "fr",
+         issue_number !=3) 
 
 #set.seed(123)  # optionnel : pour reproductibilité
 

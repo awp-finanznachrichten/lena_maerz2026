@@ -1,74 +1,65 @@
-#TESTING
-if (simulation == TRUE) {
-cant <- cant %>%
-  mutate(cantonJaStimmenInProzent = runif(n(), min = 0, max = 100),
-         cantonNoStimmenInProzent = runif(n(), min = 0, max = 100))
-}
-
-# Fonction pour créer la table par langue
-create_table <- function(lang_col, vorlage_col) {
-  
-  # Première votation
-  fr_1 <- cant %>% filter(issue_number == 1)
-  tab_1 <- fr_1 %>%
-    select({{lang_col}}, cantonJaStimmenInProzent, cantonNoStimmenInProzent, everything()) %>%
-    slice_max(order_by = cantonJaStimmenInProzent, n = 3) %>%
-    mutate(cantonNoStimmenInProzent = NA_real_) %>%
-    bind_rows(
-      fr_1 %>%
-        slice_max(order_by = cantonNoStimmenInProzent, n = 3) %>%
-        mutate(cantonJaStimmenInProzent = NA_real_)
-    ) %>%
-    add_row(!!as.name(lang_col) := fr_1[[vorlage_col]][1], .before = 1)
-  
-  # Deuxième votation
-  fr_2 <- cant %>% filter(issue_number == 2)
-  tab_2 <- fr_2 %>%
-    select({{lang_col}}, cantonJaStimmenInProzent, cantonNoStimmenInProzent, everything()) %>%
-    slice_max(order_by = cantonJaStimmenInProzent, n = 3) %>%
-    mutate(cantonNoStimmenInProzent = NA_real_) %>%
-    bind_rows(
-      fr_2 %>%
-        slice_max(order_by = cantonNoStimmenInProzent, n = 3) %>%
-        mutate(cantonJaStimmenInProzent = NA_real_)
-    ) %>%
-    add_row(!!as.name(lang_col) := fr_2[[vorlage_col]][1], .before = 1)
-  
-  # Assembler
-  bind_rows(tab_1, tab_2) 
-}
 
 create_table <- function(lang_col, vorlage_col) {
   
-  make_tab <- function(issue_num) {
-    df <- cant %>% filter(issue_number == issue_num)
+  all_tabs <- lapply(1:6, function(i) {
+    
+    data_i <- cant %>% 
+      filter(issue_number == i)
+    
+    tab_i <- data_i %>%
+      select({{ lang_col }}, 
+             cantonJaStimmenInProzent, 
+             cantonNoStimmenInProzent, 
+             everything()) %>%
+      slice_max(order_by = cantonJaStimmenInProzent, n = 3) %>%
+      mutate(cantonNoStimmenInProzent = NA_real_) %>%
+      bind_rows(
+        data_i %>%
+          slice_max(order_by = cantonNoStimmenInProzent, n = 3) %>%
+          mutate(cantonJaStimmenInProzent = NA_real_)
+      ) %>%
+      add_row(
+        !!as.name(lang_col) := data_i[[vorlage_col]][1], 
+        .before = 1
+      )
+    
+    tab_i
+  })
+  
+  bind_rows(all_tabs)
+}
+
+#create_table <- function(lang_col, vorlage_col) {
+ # 
+  #make_tab <- function(issue_num) {
+   # df <- cant %>% filter(issue_number == issue_num)
     
     # Top 3 Ja
-    top_ja <- df %>%
-      slice_max(order_by = cantonJaStimmenInProzent, n = 3) %>%
-      mutate(cantonNoStimmenInProzent = NA_real_)
+    #top_ja <- df %>%
+     # slice_max(order_by = cantonJaStimmenInProzent, n = 3) %>%
+    #  mutate(cantonNoStimmenInProzent = NA_real_)
     
     # Top 3 No
-    top_no <- df %>%
-      slice_max(order_by = cantonNoStimmenInProzent, n = 3) %>%
-      mutate(cantonJaStimmenInProzent = NA_real_)
+    #top_no <- df %>%
+     # slice_max(order_by = cantonNoStimmenInProzent, n = 3) %>%
+    #  mutate(cantonJaStimmenInProzent = NA_real_)
     
     # Ligne Vorlage : uniquement le texte de la votation, tout le reste vide
-    vorlage_row <- df[1, ] %>%
-      mutate(across(everything(), ~ NA)) %>%      # mettre tout à NA
-      mutate(!!as.name(lang_col) := df[[vorlage_col]][1])  # remplacer la colonne de langue
+    #vorlage_row <- df[1, ] %>%
+     # mutate(across(everything(), ~ NA)) %>%      # mettre tout à NA
+      #mutate(!!as.name(lang_col) := df[[vorlage_col]][1])  # remplacer la colonne de langue
     
     # Assembler
-    bind_rows(vorlage_row, top_ja, top_no) %>%
-      select({{lang_col}}, cantonJaStimmenInProzent, cantonNoStimmenInProzent, everything())
-  }
+    #bind_rows(vorlage_row, top_ja, top_no) %>%
+    #  select({{lang_col}}, cantonJaStimmenInProzent, cantonNoStimmenInProzent, everything())
+  #}
   
   # Votation 1 et 2
-  tab1 <- make_tab(1)
-  tab2 <- make_tab(2)
+ # tab1 <- make_tab(1)
+#  tab2 <- make_tab(2)
   
-  bind_rows(tab1, tab2)
-}
+ # bind_rows(tab1, tab2)
+#}
 
 
 
