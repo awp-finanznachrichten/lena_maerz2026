@@ -10,7 +10,7 @@ for (i in 1:length(vorlagen_short)) {
   results_national_special_gegenvorschlag <- get_results(json_data,i+1,level="national")
   results_national_special_stichentscheid <- get_results(json_data,i+2,level="national")
   }  
-  
+
   ###Resultate aus JSON auslesen für Gemeinden
   results <- get_results(json_data,i)
 
@@ -35,7 +35,7 @@ for (i in 1:length(vorlagen_short)) {
 
   #Wie viele Gemeinden sind ausgezählt
   cat(paste0(sum(results$Gebiet_Ausgezaehlt)," Gemeinden sind ausgezählt.\n"))
-  
+
   #Neue Variablen
   results <- results %>%
     mutate(Ja_Nein = NA,
@@ -215,7 +215,7 @@ for (i in 1:length(vorlagen_short)) {
       arrange(Gemeinde_Nr)
     
   }
-  
+
 ###Texte speichern
 if (save_texts == TRUE) {
 texts <- results %>%
