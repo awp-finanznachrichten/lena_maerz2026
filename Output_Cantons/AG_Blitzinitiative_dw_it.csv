@@ -1,12 +1,12 @@
 "ID","Gemeinde_color","Ja_Stimmen_In_Prozent","Nein_Stimmen_In_Prozent","Gemeinde_it","Text_it"
-4001,50,0,0,"Aarau (AG)","I risultati di questo comune non sono ancora noti."
+4001,39.4,39.4,60.6,"Aarau (AG)",
 4002,51.3,51.3,48.7,"Biberstein (AG)",
 4003,48.3,48.3,51.7,"Buchs (AG)",
 4004,53.2,53.2,46.8,"Densbüren (AG)",
 4005,53.7,53.7,46.3,"Erlinsbach (AG)",
-4006,50,0,0,"Gränichen (AG)","I risultati di questo comune non sono ancora noti."
+4006,56.9,56.9,43.1,"Gränichen (AG)",
 4007,58.8,58.8,41.2,"Hirschthal (AG)",
-4008,50,0,0,"Küttigen (AG)","I risultati di questo comune non sono ancora noti."
+4008,45.5,45.5,54.5,"Küttigen (AG)",
 4009,56.7,56.7,43.3,"Muhen (AG)",
 4010,53.7,53.7,46.3,"Oberentfelden (AG)",
 4012,45.4,45.4,54.6,"Suhr (AG)",
@@ -120,10 +120,10 @@
 4198,52,52,48,"Hendschiken (AG)",
 4199,61,61,39,"Holderbank (AG)",
 4200,63.9,63.9,36.1,"Hunzenschwil (AG)",
-4201,50,0,0,"Lenzburg (AG)","I risultati di questo comune non sono ancora noti."
-4202,50,0,0,"Meisterschwanden (AG)","I risultati di questo comune non sono ancora noti."
+4201,46.1,46.1,53.9,"Lenzburg (AG)",
+4202,65.2,65.2,34.8,"Meisterschwanden (AG)",
 4203,55.8,55.8,44.2,"Möriken-Wildegg (AG)",
-4204,50,0,0,"Niederlenz (AG)","I risultati di questo comune non sono ancora noti."
+4204,49.2,49.2,50.8,"Niederlenz (AG)",
 4205,59.8,59.8,40.2,"Othmarsingen (AG)",
 4206,57.6,57.6,42.4,"Rupperswil (AG)",
 4207,55.2,55.2,44.8,"Schafisheim (AG)",
