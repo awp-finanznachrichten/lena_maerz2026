@@ -1,7 +1,7 @@
 "ID","Gemeinde_color","Ja_Stimmen_In_Prozent","Nein_Stimmen_In_Prozent","Gemeinde_it","Text_it"
 4001,50,0,0,"Aarau (AG)","I risultati di questo comune non sono ancora noti."
 4002,38.4,38.4,61.6,"Biberstein (AG)",
-4003,50,0,0,"Buchs (AG)","I risultati di questo comune non sono ancora noti."
+4003,39,39,61,"Buchs (AG)",
 4004,45.1,45.1,54.9,"Densbüren (AG)",
 4005,50,0,0,"Erlinsbach (AG)","I risultati di questo comune non sono ancora noti."
 4006,50,0,0,"Gränichen (AG)","I risultati di questo comune non sono ancora noti."
@@ -10,14 +10,14 @@
 4009,50,0,0,"Muhen (AG)","I risultati di questo comune non sono ancora noti."
 4010,46.4,46.4,53.6,"Oberentfelden (AG)",
 4012,50,0,0,"Suhr (AG)","I risultati di questo comune non sono ancora noti."
-4013,50,0,0,"Unterentfelden (AG)","I risultati di questo comune non sono ancora noti."
+4013,41,41,59,"Unterentfelden (AG)",
 4021,50,0,0,"Baden (AG)","I risultati di questo comune non sono ancora noti."
 4022,50,0,0,"Bellikon (AG)","I risultati di questo comune non sono ancora noti."
 4023,50.3,50.3,49.7,"Bergdietikon (AG)",
 4024,43,43,57,"Birmenstorf (AG)",
 4026,29.7,29.7,70.3,"Ennetbaden (AG)",
 4027,40.4,40.4,59.6,"Fislisbach (AG)",
-4028,50,0,0,"Freienwil (AG)","I risultati di questo comune non sono ancora noti."
+4028,39.5,39.5,60.5,"Freienwil (AG)",
 4029,58.9,58.9,41.1,"Gebenstorf (AG)",
 4030,48.1,48.1,51.9,"Killwangen (AG)",
 4031,41.5,41.5,58.5,"Künten (AG)",
@@ -40,7 +40,7 @@
 4062,50,0,0,"Berikon (AG)","I risultati di questo comune non sono ancora noti."
 4063,44,44,56,"Bremgarten (AG)",
 4064,50,50,50,"Büttikon (AG)",
-4065,50,0,0,"Dottikon (AG)","I risultati di questo comune non sono ancora noti."
+4065,49.7,49.7,50.3,"Dottikon (AG)",
 4066,43.5,43.5,56.5,"Eggenwil (AG)",
 4067,51.8,51.8,48.2,"Fischbach-Göslikon (AG)",
 4068,48.5,48.5,51.5,"Hägglingen (AG)",
@@ -55,8 +55,8 @@
 4079,48.5,48.5,51.5,"Unterlunkhofen (AG)",
 4080,50,0,0,"Villmergen (AG)","I risultati di questo comune non sono ancora noti."
 4081,47.8,47.8,52.2,"Widen (AG)",
-4082,50,0,0,"Wohlen (AG)","I risultati di questo comune non sono ancora noti."
-4083,50,0,0,"Zufikon (AG)","I risultati di questo comune non sono ancora noti."
+4082,46.8,46.8,53.2,"Wohlen (AG)",
+4083,47.9,47.9,52.1,"Zufikon (AG)",
 4084,48.7,48.7,51.3,"Islisberg (AG)",
 4091,43.5,43.5,56.5,"Auenstein (AG)",
 4092,49.5,49.5,50.5,"Birr (AG)",
@@ -64,14 +64,14 @@
 4095,50,0,0,"Brugg (AG)","I risultati di questo comune non sono ancora noti."
 4099,47.8,47.8,52.2,"Habsburg (AG)",
 4100,50,0,0,"Hausen (AG)","I risultati di questo comune non sono ancora noti."
-4104,50,0,0,"Lupfig (AG)","I risultati di questo comune non sono ancora noti."
+4104,48.7,48.7,51.3,"Lupfig (AG)",
 4105,47.1,47.1,52.9,"Mandach (AG)",
 4106,50.3,50.3,49.7,"Mönthal (AG)",
 4107,38.2,38.2,61.8,"Mülligen (AG)",
 4110,46.6,46.6,53.4,"Remigen (AG)",
 4111,40.6,40.6,59.4,"Riniken (AG)",
 4112,42.1,42.1,57.9,"Rüfenach (AG)",
-4117,50,0,0,"Thalheim (AG)","I risultati di questo comune non sono ancora noti."
+4117,46.2,46.2,53.8,"Thalheim (AG)",
 4120,50,0,0,"Veltheim (AG)","I risultati di questo comune non sono ancora noti."
 4121,44.4,44.4,55.6,"Villigen (AG)",
 4123,50,0,0,"Windisch (AG)","I risultati di questo comune non sono ancora noti."
@@ -86,15 +86,15 @@
 4138,53.7,53.7,46.3,"Leutwil (AG)",
 4139,55.2,55.2,44.8,"Menziken (AG)",
 4140,55.1,55.1,44.9,"Oberkulm (AG)",
-4141,50,0,0,"Reinach (AG)","I risultati di questo comune non sono ancora noti."
+4141,51.5,51.5,48.5,"Reinach (AG)",
 4142,48.6,48.6,51.4,"Schlossrued (AG)",
 4143,57.9,57.9,42.1,"Schmiedrued (AG)",
 4144,46.9,46.9,53.1,"Schöftland (AG)",
-4145,50,0,0,"Teufenthal (AG)","I risultati di questo comune non sono ancora noti."
+4145,48.4,48.4,51.6,"Teufenthal (AG)",
 4146,51.8,51.8,48.2,"Unterkulm (AG)",
 4147,53.4,53.4,46.6,"Zetzwil (AG)",
 4161,47.5,47.5,52.5,"Eiken (AG)",
-4163,50,0,0,"Frick (AG)","I risultati di questo comune non sono ancora noti."
+4163,45.6,45.6,54.4,"Frick (AG)",
 4164,39.9,39.9,60.1,"Gansingen (AG)",
 4165,40.6,40.6,59.4,"Gipf-Oberfrick (AG)",
 4169,46.8,46.8,53.2,"Kaisten (AG)",
@@ -119,19 +119,19 @@
 4197,45.7,45.7,54.3,"Hallwil (AG)",
 4198,48.8,48.8,51.2,"Hendschiken (AG)",
 4199,51.3,51.3,48.7,"Holderbank (AG)",
-4200,50,0,0,"Hunzenschwil (AG)","I risultati di questo comune non sono ancora noti."
+4200,47.9,47.9,52.1,"Hunzenschwil (AG)",
 4201,50,0,0,"Lenzburg (AG)","I risultati di questo comune non sono ancora noti."
 4202,50,0,0,"Meisterschwanden (AG)","I risultati di questo comune non sono ancora noti."
-4203,50,0,0,"Möriken-Wildegg (AG)","I risultati di questo comune non sono ancora noti."
+4203,45.7,45.7,54.3,"Möriken-Wildegg (AG)",
 4204,50,0,0,"Niederlenz (AG)","I risultati di questo comune non sono ancora noti."
 4205,50,0,0,"Othmarsingen (AG)","I risultati di questo comune non sono ancora noti."
 4206,47.4,47.4,52.6,"Rupperswil (AG)",
 4207,46.4,46.4,53.6,"Schafisheim (AG)",
-4208,50,0,0,"Seengen (AG)","I risultati di questo comune non sono ancora noti."
+4208,49.5,49.5,50.5,"Seengen (AG)",
 4209,47.4,47.4,52.6,"Seon (AG)",
 4210,40.6,40.6,59.4,"Staufen (AG)",
 4221,51.5,51.5,48.5,"Abtwil (AG)",
-4222,50,0,0,"Aristau (AG)","I risultati di questo comune non sono ancora noti."
+4222,49.3,49.3,50.7,"Aristau (AG)",
 4223,55.2,55.2,44.8,"Auw (AG)",
 4224,53.5,53.5,46.5,"Beinwil (Freiamt) (AG)",
 4226,47.1,47.1,52.9,"Besenbüren (AG)",
@@ -150,7 +150,7 @@
 4239,46.9,46.9,53.1,"Sins (AG)",
 4240,49.1,49.1,50.9,"Waltenschwil (AG)",
 4251,52.7,52.7,47.3,"Hellikon (AG)",
-4252,50,0,0,"Kaiseraugst (AG)","I risultati di questo comune non sono ancora noti."
+4252,47.4,47.4,52.6,"Kaiseraugst (AG)",
 4253,50,0,0,"Magden (AG)","I risultati di questo comune non sono ancora noti."
 4254,49.5,49.5,50.5,"Möhlin (AG)",
 4255,48.6,48.6,51.4,"Mumpf (AG)",
@@ -169,7 +169,7 @@
 4275,53,53,47,"Kirchleerau (AG)",
 4276,52.4,52.4,47.6,"Kölliken (AG)",
 4277,58.5,58.5,41.5,"Moosleerau (AG)",
-4279,50,0,0,"Murgenthal (AG)","I risultati di questo comune non sono ancora noti."
+4279,53.8,53.8,46.2,"Murgenthal (AG)",
 4280,50,0,0,"Oftringen (AG)","I risultati di questo comune non sono ancora noti."
 4281,54,54,46,"Reitnau (AG)",
 4282,49.6,49.6,50.4,"Rothrist (AG)",
@@ -179,10 +179,10 @@
 4286,47,47,53,"Uerkheim (AG)",
 4287,51.2,51.2,48.8,"Vordemwald (AG)",
 4288,45.5,45.5,54.5,"Wiliberg (AG)",
-4289,50,0,0,"Zofingue (AG)","I risultati di questo comune non sono ancora noti."
-4303,50,0,0,"Böttstein (AG)","I risultati di questo comune non sono ancora noti."
+4289,39.7,39.7,60.3,"Zofingue (AG)",
+4303,48.6,48.6,51.4,"Böttstein (AG)",
 4304,49.1,49.1,50.9,"Döttingen (AG)",
-4305,50,0,0,"Endingen (AG)","I risultati di questo comune non sono ancora noti."
+4305,39.1,39.1,60.9,"Endingen (AG)",
 4306,49.7,49.7,50.3,"Fisibach (AG)",
 4307,49.6,49.6,50.4,"Full-Reuenthal (AG)",
 4309,43.7,43.7,56.3,"Klingnau (AG)",
@@ -194,4 +194,4 @@
 4318,43.6,43.6,56.4,"Schneisingen (AG)",
 4319,48.8,48.8,51.2,"Siglistorf (AG)",
 4320,45.5,45.5,54.5,"Tegerfelden (AG)",
-4324,50,0,0,"Zurzach (AG)","I risultati di questo comune non sono ancora noti."
+4324,48.4,48.4,51.6,"Zurzach (AG)",

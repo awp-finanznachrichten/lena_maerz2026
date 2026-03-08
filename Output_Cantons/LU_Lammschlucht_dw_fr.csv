@@ -1,10 +1,10 @@
 "ID","Gemeinde_color","Ja_Stimmen_In_Prozent","Nein_Stimmen_In_Prozent","Gemeinde_fr","Text_fr"
-1001,50,0,0,"Doppleschwand (LU)","Les résultats ne sont pas encore connus dans cette commune."
+1001,95.2,95.2,4.8,"Doppleschwand (LU)",
 1002,50,0,0,"Entlebuch (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1004,50,0,0,"Flühli (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1005,93,93,7,"Hasle (LU)",
 1007,94.1,94.1,5.9,"Romoos (LU)",
-1008,50,0,0,"Schüpfheim (LU)","Les résultats ne sont pas encore connus dans cette commune."
+1008,94.9,94.9,5.1,"Schüpfheim (LU)",
 1009,50,0,0,"Werthenstein (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1010,50,0,0,"Escholzmatt-Marbach (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1021,79.7,79.7,20.3,"Aesch (LU)",
@@ -12,7 +12,7 @@
 1024,79.1,79.1,20.9,"Emmen (LU)",
 1025,76.7,76.7,23.3,"Ermensee (LU)",
 1026,83.8,83.8,16.2,"Eschenbach (LU)",
-1030,50,0,0,"Hitzkirch (LU)","Les résultats ne sont pas encore connus dans cette commune."
+1030,79.4,79.4,20.6,"Hitzkirch (LU)",
 1031,79.6,79.6,20.4,"Hochdorf (LU)",
 1032,86.2,86.2,13.8,"Hohenrain (LU)",
 1033,83.7,83.7,16.3,"Inwil (LU)",
@@ -24,8 +24,8 @@
 1052,82.9,82.9,17.1,"Buchrain (LU)",
 1053,78.3,78.3,21.7,"Dierikon (LU)",
 1054,50,0,0,"Ebikon (LU)","Les résultats ne sont pas encore connus dans cette commune."
-1055,50,0,0,"Gisikon (LU)","Les résultats ne sont pas encore connus dans cette commune."
-1056,50,0,0,"Greppen (LU)","Les résultats ne sont pas encore connus dans cette commune."
+1055,81.9,81.9,18.1,"Gisikon (LU)",
+1056,75.8,75.8,24.2,"Greppen (LU)",
 1058,50,0,0,"Horw (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1059,50,0,0,"Kriens (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1061,79.8,79.8,20.2,"Lucerne (LU)",
@@ -49,7 +49,7 @@
 1093,84.2,84.2,15.8,"Neuenkirch (LU)",
 1094,50,0,0,"Nottwil (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1095,85,85,15,"Oberkirch (LU)",
-1097,50,0,0,"Rickenbach (LU)","Les résultats ne sont pas encore connus dans cette commune."
+1097,86,86,14,"Rickenbach (LU)",
 1098,50,0,0,"Ruswil (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1099,82.3,82.3,17.7,"Schenkon (LU)",
 1100,79.3,79.3,20.7,"Schlierbach (LU)",
@@ -62,12 +62,12 @@
 1123,50,0,0,"Altishofen (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1125,82.1,82.1,17.9,"Dagmersellen (LU)",
 1127,84.8,84.8,15.2,"Egolzwil (LU)",
-1128,50,0,0,"Ettiswil (LU)","Les résultats ne sont pas encore connus dans cette commune."
+1128,86.3,86.3,13.7,"Ettiswil (LU)",
 1129,75.5,75.5,24.5,"Fischbach (LU)",
 1131,79.7,79.7,20.3,"Grossdietwil (LU)",
 1132,89.6,89.6,10.4,"Hergiswil bei Willisau (LU)",
 1135,50,0,0,"Luthern (LU)","Les résultats ne sont pas encore connus dans cette commune."
-1136,50,0,0,"Menznau (LU)","Les résultats ne sont pas encore connus dans cette commune."
+1136,87.9,87.9,12.1,"Menznau (LU)",
 1137,50,0,0,"Nebikon (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1139,50,0,0,"Pfaffnau (LU)","Les résultats ne sont pas encore connus dans cette commune."
 1140,79.4,79.4,20.6,"Reiden (LU)",
@@ -77,4 +77,4 @@
 1146,82.4,82.4,17.6,"Wauwil (LU)",
 1147,75.4,75.4,24.6,"Wikon (LU)",
 1150,83.6,83.6,16.4,"Zell (LU)",
-1151,50,0,0,"Willisau (LU)","Les résultats ne sont pas encore connus dans cette commune."
+1151,86.8,86.8,13.2,"Willisau (LU)",
